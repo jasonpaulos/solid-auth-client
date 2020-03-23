@@ -2,7 +2,7 @@
 /* eslint-env browser */
 
 function getLocation() {
-  return typeof window !== 'undefined'
+  return typeof window !== 'undefined' && window.location
     ? window.location
     : { href: 'https://example.org/', pathname: '/', origin: 'example.org' }
 }

@@ -11,11 +11,13 @@ export interface AsyncStorage {
 
 export type Storage = Storage | AsyncStorage
 
-export const defaultStorage = () => {
+const _defaultStorage = () => {
   const hasLocalStorage =
     typeof window !== 'undefined' && 'localStorage' in window
   return asyncStorage(hasLocalStorage ? window.localStorage : memStorage())
 }
+
+export const defaultStorage = () => defaultStorageInstance
 
 /**
  * Gets the deserialized stored data
@@ -94,3 +96,5 @@ export function ipcStorage(client: Client): AsyncStorage {
       client.request('storage/removeItem', key)
   }
 }
+
+const defaultStorageInstance = _defaultStorage()

@@ -2,7 +2,7 @@
 /* global Response */
 import * as authorization from 'auth-header'
 import RelyingParty from '@solid/oidc-rp'
-import PoPToken from '@solid/oidc-rp/lib/PoPToken'
+import PoPToken from '@solid/oidc-rp/src/PoPToken'
 
 import type { loginOptions } from './solid-auth-client'
 import { currentUrl, navigateTo, toUrlString } from './url-util'
